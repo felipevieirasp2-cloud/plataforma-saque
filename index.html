@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Saque</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Plataforma de Saque</h1>
+            <p class="subtitle">Saque fácil e rápido</p>
+        </header>
+
+        <main>
+            <div class="card">
+                <h2>Seu Saldo</h2>
+                <div class="balance">
+                    <span class="currency">R$</span>
+                    <span class="amount" id="balance">5.000,00</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Solicitar Saque</h2>
+                <form id="withdrawForm">
+                    <div class="form-group">
+                        <label for="amount">Valor do Saque (R$):</label>
+                        <input 
+                            type="number" 
+                            id="amount" 
+                            name="amount" 
+                            placeholder="0,00" 
+                            step="0.01"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bankAccount">Conta Bancária (Opcional):</label>
+                        <select id="bankAccount" name="bankAccount">
+                            <option value="">Sem seleção</option>
+                            <option value="nubank">Nubank</option>
+                            <option value="inter">Inter</option>
+                            <option value="bradesco">Bradesco</option>
+                            <option value="itau">Itaú</option>
+                            <option value="santander">Santander</option>
+                            <option value="pix">PIX</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pixKey">Chave PIX ou Dados (Opcional):</label>
+                        <input 
+                            type="text" 
+                            id="pixKey" 
+                            name="pixKey" 
+                            placeholder="CPF, Email, Telefone, Conta..."
+                        >
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        <span>🚀 Sacar Agora</span>
+                    </button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2>Histórico de Saques</h2>
+                <div id="withdrawHistory" class="history-list">
+                    <p class="empty-history">Nenhum saque realizado ainda</p>
+                </div>
+            </div>
+        </main>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modalTitle">✅ Saque Confirmado!</h2>
+                <p id="modalMessage"></p>
+                <div class="modal-actions">
+                    <button id="modalConfirm" class="btn btn-primary">Fechar</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="notification" class="notification"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
